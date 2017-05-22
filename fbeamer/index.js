@@ -9,9 +9,7 @@ class FBeamer {
 				throw new Error("Unable to access tokens!");
 			} else {
 				this.PAGE_ACCESS_TOKEN = config.PAGE_ACCESS_TOKEN;
-				this.VERIFY_TOKEN = config.VERIFY_TOKEN;
-				this.APP_SECRET = config.APP_SECRET;
-			}
+				this.VERIFY_TOKEN = config.VERIFY_TOKEN;			}
 		} catch(e) {
 			console.log(e);
 		}

@@ -18,6 +18,8 @@ const config = require('./config');
 const FBeamer = require('./fbeamer');
 const f = new FBeamer(config.FB);
 
+//server.use((req, res, next) => f.verifySignature(req, res, next));
+
 // Wit.ai
 const Wit = require('node-wit').Wit;
 const wit = new Wit({
@@ -48,10 +50,11 @@ server.post('/', (req, res, next) => {
 			//f.txt(sender, `You said ${message.text}`);
 
 			//Wit's Message API
+			console.log(message.text);
 			wit.message(message.text, {})
 			  .then(omdb)
 				.then(response => {
-					console.log(response.text);
+					console.log("Hello");
 					f.txt(sender, response.text);
 					if(response.image) {
 						f.img(sender, response.image);
